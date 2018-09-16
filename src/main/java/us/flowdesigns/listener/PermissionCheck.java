@@ -32,7 +32,7 @@ public class PermissionCheck implements Listener
                 }
             }
             perms.put(player.getUniqueId(), attachment);
-            NLog.info("Registered: " + player + " with the Wave permission system");
+            NLog.info("Registered: " + player.getName() + " with the Wave permission system");
         }
         return true;
     }
