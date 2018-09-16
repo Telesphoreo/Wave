@@ -8,7 +8,7 @@
 
 operator:
   permissions:
-    - essentials.antioch
+  - essentials.antioch
     - essentials.backup
     - essentials.ban
     - essentials.banip
@@ -37,6 +37,9 @@ operator:
     - essentials.unban
     - essentials.unbanip
     - essentials.warp.others
+    - essentials.speed.others
+    - essentials.whois.ip
+    - essentials.seen.ip
     - essentials.tptoggle.others
     - essentials.fly.others
     - essentials.spawn.others
@@ -53,5 +56,33 @@ operator:
     - libsdisguises.disguise.ender_crystal
     - libsdisguises.disguise.area_affect_cloud
     - libsdisguises.disguise.wither
+    - libsdisguises.disguiseplayer.*
+    - libsdisguises.undisguiseplayer
+    - libsdisguises.disguiseentity.item_frame
+    - libsdisguises.disguiseentity.ender_dragon
+    - libsdisguises.disguiseentity.player
+    - libsdisguises.disguiseentity.giant
+    - libsdisguises.disguiseentity.ghast
+    - libsdisguises.disguiseentity.magma_cube
+    - libsdisguises.disguiseentity.slime
+    - libsdisguises.disguiseentity.dropped_item
+    - libsdisguises.disguiseentity.ender_crystal
+    - libsdisguises.disguiseentity.area_affect_cloud
+    - libsdisguises.disguiseentity.wither
+    - libsdisguises.disguiseradius.item_frame
+    - libsdisguises.disguiseradius.ender_dragon
+    - libsdisguises.disguiseradius.player
+    - libsdisguises.disguiseradius.giant
+    - libsdisguises.disguiseradius.ghast
+    - libsdisguises.disguiseradius.magma_cube
+    - libsdisguises.disguiseradius.slime
+    - libsdisguises.disguiseradius.dropped_item
+    - libsdisguises.disguiseradius.ender_crystal
+    - libsdisguises.disguiseradius.area_affect_cloud
+    - libsdisguises.disguiseradius.wither
+    - essentials.clearinventory.all
+    - essentials.clearinventory.multiple
+    - wave.reload
+    - wave.update
 
 enable_updater: true
