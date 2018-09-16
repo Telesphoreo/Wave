@@ -1,0 +1,9 @@
+name: Wave
+version: 1.0.0
+description: A reverse permissions plugin
+author: Model_3
+main: us.flowdesigns.wave.Wave
+commands:
+  wave:
+    usage: /<command> [reload | update]
+    description: Shows information about, reload, or update Wave

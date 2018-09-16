@@ -1,0 +1,57 @@
+#
+# Wave v1.0.0
+#
+
+# Add permission nodes as you normally would, and it will be blocked for Operators
+# These permission nodes do not apply for Super Admins
+# TotalFreedomMod is required for this to work
+
+operator:
+  permissions:
+    - essentials.antioch
+    - essentials.backup
+    - essentials.ban
+    - essentials.banip
+    - essentials.broadcast
+    - essentials.broadcastworld
+    - essentials.burn
+    - essentials.createkit
+    - essentials.essentials
+    - essentials.fireball
+    - essentials.gamemode
+    - essentials.helpop
+    - essentials.ignore
+    - essentials.kick
+    - essentials.kickall
+    - essentials.kill
+    - essentials.mute
+    - essentials.nuke
+    - essentials.powertool
+    - essentials.powertooltoggle
+    - essentials.setjail
+    - essentials.sudo
+    - essentials.tempban
+    - essentials.thunder
+    - essentials.tpaall
+    - essentials.tpall
+    - essentials.unban
+    - essentials.unbanip
+    - essentials.warp.others
+    - essentials.tptoggle.others
+    - essentials.fly.others
+    - essentials.spawn.others
+    - essentials.weather
+    - libsdisguises.reload
+    - libsdisguises.disguise.item_frame
+    - libsdisguises.disguise.ender_dragon
+    - libsdisguises.disguise.player
+    - libsdisguises.disguise.giant
+    - libsdisguises.disguise.ghast
+    - libsdisguises.disguise.magma_cube
+    - libsdisguises.disguise.slime
+    - libsdisguises.disguise.dropped_item
+    - libsdisguises.disguise.ender_crystal
+    - libsdisguises.disguise.area_affect_cloud
+    - libsdisguises.disguise.wither
+
+enable_updater: true
