@@ -16,6 +16,10 @@ public class Config
     private static Map<ConfigFile, File> configFile = new EnumMap<ConfigFile, File>(ConfigFile.class);
     private static Map<ConfigFile, Boolean> loaded = new EnumMap<ConfigFile, Boolean>(ConfigFile.class);
 
+    private Config()
+    {
+    }
+
     public static YamlConfiguration getConfig(ConfigFile configfile)
     {
         if (loaded.containsKey(configfile) && !loaded.get(configfile))
@@ -105,10 +109,6 @@ public class Config
                 fos.close();
             }
         }
-    }
-
-    private Config()
-    {
     }
 
     public enum ConfigFile

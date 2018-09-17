@@ -15,13 +15,11 @@ import us.flowdesigns.utils.NLog;
 
 public class Wave extends JavaPlugin
 {
+    public static final BuildProperties build = new BuildProperties();
     public static Wave plugin;
     public static Server server;
-
     public static String pluginName;
     public static String pluginVersion;
-
-    public static final BuildProperties build = new BuildProperties();
 
     @Override
     public void onLoad()
@@ -56,6 +54,8 @@ public class Wave extends JavaPlugin
     @Override
     public void onDisable()
     {
+        PermissionCheck pCheck = new PermissionCheck();
+        pCheck.clear();
     }
 
     @Override

@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import us.flowdesigns.listener.PermissionCheck;
 import us.flowdesigns.utils.NLog;
 import us.flowdesigns.wave.Updater;
 import us.flowdesigns.wave.Wave;
@@ -71,11 +72,15 @@ public class Command_wave extends BaseCommand
                     sender.sendMessage(Messages.MSG_NO_PERMS);
                     return true;
                 }
+                for (Player player : server.getOnlinePlayers())
+                {
+                    PermissionCheck pCheck = new PermissionCheck();
+                    pCheck.reloadPermissions(player);
+                }
                 try
                 {
                     Wave.plugin.reloadConfig();
                     sender.sendMessage(Messages.RELOADED);
-                    return true;
                 }
                 catch (Exception ex)
                 {
