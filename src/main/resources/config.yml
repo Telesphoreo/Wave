@@ -145,5 +145,3 @@ superadmin:
   - libsdisguises.disguiseradius.ender_crystal
   - libsdisguises.disguiseradius.area_affect_cloud
   - libsdisguises.disguiseradius.wither
-
-enable_updater: true

@@ -7,4 +7,4 @@ depend: [TotalFreedomMod]
 commands:
   wave:
     usage: /<command> [reload | update]
-    description: Shows information about, reload, or update Wave
+    description: Shows information about or update Wave

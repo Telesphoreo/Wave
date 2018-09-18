@@ -10,7 +10,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import us.flowdesigns.commands.CMD_Handler;
 import us.flowdesigns.commands.CMD_Loader;
 import us.flowdesigns.listener.PermissionCheck;
-import us.flowdesigns.listener.UpdateChecker;
 import us.flowdesigns.utils.NLog;
 
 public class Wave extends JavaPlugin
@@ -20,6 +19,7 @@ public class Wave extends JavaPlugin
     public static Server server;
     public static String pluginName;
     public static String pluginVersion;
+
 
     @Override
     public void onLoad()
@@ -37,7 +37,6 @@ public class Wave extends JavaPlugin
     {
         build.load(Wave.plugin);
         server.getPluginManager().registerEvents(new PermissionCheck(), Wave.plugin);
-        server.getPluginManager().registerEvents(new UpdateChecker(), Wave.plugin);
         Metrics metrics = new Metrics(this);
         Config.loadConfigs();
         new BukkitRunnable()
@@ -49,13 +48,16 @@ public class Wave extends JavaPlugin
                 CMD_Loader.scan();
             }
         };
+
     }
 
     @Override
     public void onDisable()
     {
         PermissionCheck pCheck = new PermissionCheck();
+        Updater updater = new Updater(plugin);
         pCheck.clear();
+        updater.update();
     }
 
     @Override
