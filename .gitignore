@@ -20,9 +20,6 @@ manifest.mf
 *.iws
 /.idea
 
-# Ignore this file for people who clone from Git
-Wave.iml
-
 # Maven excludes
 /target
 

@@ -3,6 +3,7 @@ package us.flowdesigns.commands;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
 import us.flowdesigns.listener.PermissionCheck;
 import us.flowdesigns.utils.NLog;
@@ -57,7 +58,6 @@ public class Command_wave extends BaseCommand
                 {
                     Updater updater = new Updater(Wave.plugin);
                     updater.update(sender);
-                    return true;
                 }
                 else
                 {
@@ -72,11 +72,6 @@ public class Command_wave extends BaseCommand
                     sender.sendMessage(Messages.MSG_NO_PERMS);
                     return true;
                 }
-                for (Player player : server.getOnlinePlayers())
-                {
-                    PermissionCheck pCheck = new PermissionCheck();
-                    pCheck.reloadPermissions(player);
-                }
                 try
                 {
                     Wave.plugin.reloadConfig();
@@ -86,6 +81,11 @@ public class Command_wave extends BaseCommand
                 {
                     NLog.severe(ex);
                     sender.sendMessage(Messages.FAILED);
+                }
+                for (Player player : server.getOnlinePlayers())
+                {
+                    PermissionCheck pCheck = new PermissionCheck();
+                    pCheck.reloadPermissions(player);
                 }
                 return true;
             }
