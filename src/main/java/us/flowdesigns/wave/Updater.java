@@ -29,7 +29,6 @@ public class Updater
 
     public void update()
     {
-        NLog.info("Updater ran");
         try
         {
             URL url = new URL(versionLink);
@@ -42,15 +41,13 @@ public class Updater
 
             if (!newVersion.equals(oldVersion))
             {
-                NLog.info("New version detected");
                 url = new URL(dlLink);
                 con = url.openConnection();
                 InputStream in = con.getInputStream();
                 FileOutputStream out = new FileOutputStream(path);
                 byte[] buffer = new byte[1024];
                 int size = 0;
-                NLog.info(newVersion);
-                NLog.info(oldVersion);
+                NLog.info("Update to Wave applied successfully");
                 while ((size = in.read(buffer)) != -1)
                 {
                     out.write(buffer, 0, size);
@@ -61,12 +58,10 @@ public class Updater
             }
             else
             {
-                NLog.info("No new version detected");
             }
         }
         catch (IOException e)
         {
-            NLog.info("Error" + e);
         }
     }
 
