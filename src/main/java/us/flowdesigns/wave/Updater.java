@@ -9,43 +9,54 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import us.flowdesigns.utils.NLog;
 
-public class Updater
+class Updater
 {
-    final String dlLink = "https://flowdesigns.us/wave/Wave.jar";
-    final String versionLink = "https://flowdesigns.us/wave/version.txt";
     private Plugin plugin;
+    private Wave.BuildProperties build = Wave.build;
+    private String oldHead = build.head;
+    private String path = this.getFilePath();
 
-    public Updater(Plugin plugin)
+    Updater(Plugin plugin)
     {
         this.plugin = plugin;
     }
 
-    public void update(CommandSender sender)
+    void update()
     {
-        int oldVersion = this.getVersionFromString(plugin.getDescription().getVersion());
-        String path = this.getFilePath();
-
         try
         {
+            String versionLink = "https://flowdesigns.us/wave/version.txt";
             URL url = new URL(versionLink);
             URLConnection con = url.openConnection();
             InputStreamReader isr = new InputStreamReader(con.getInputStream());
             BufferedReader reader = new BufferedReader(isr);
-            reader.ready();
-            int newVersion = this.getVersionFromString(reader.readLine());
+            if (!reader.ready())
+            {
+                return;
+            }
+
+            String newHead = reader.readLine();
             reader.close();
 
-            if (newVersion > oldVersion)
+            if (oldHead.equals("${git.commit.id.abbrev") || oldHead.equals("unknown"))
             {
+                NLog.info("No Git head detected, not updating");
+                return;
+            }
+
+            if (!plugin.getConfig().getBoolean("enable_updater"))
+            {
+                NLog.info("Updater is disabled, not updating");
+                return;
+            }
+
+            if (!newHead.equals(oldHead))
+            {
+                String dlLink = "https://flowdesigns.us/wave/Wave.jar";
                 url = new URL(dlLink);
                 con = url.openConnection();
                 InputStream in = con.getInputStream();
@@ -59,24 +70,16 @@ public class Updater
 
                 out.close();
                 in.close();
-                NLog.info(sender.getName() + " - Updating to the latest version of Wave");
-                sender.sendMessage(ChatColor.GRAY + "Updating to the latest version of Wave, please wait.");
-                Bukkit.reload();
-                sender.sendMessage(ChatColor.GRAY + "Wave was successfully updated.");
-            }
-            else
-            {
-                sender.sendMessage(ChatColor.GRAY + "There are no updates available for Wave.");
+                NLog.info("Update to Wave applied successfully");
             }
         }
-        catch (IOException e)
+        catch (IOException ignored)
         {
-            sender.sendMessage(ChatColor.GRAY + "There are no over the air updates available for Wave. Try restarting your server and checking for updates again. If this does not work, please go to https://github.com/Telesphoreo/Wave/releases and download the latest release from there.");
-            NLog.severe(e);
+            NLog.info("Error applying update to Wave");
         }
     }
 
-    public String getFilePath()
+    private String getFilePath()
     {
         if (plugin instanceof JavaPlugin)
         {
@@ -97,21 +100,7 @@ public class Updater
         }
         else
         {
-            return "plugins" + File.separator + plugin.getName();
+            return "plugins" + File.separator + "Wave.jar";
         }
-    }
-
-    public int getVersionFromString(String from)
-    {
-        String result = "";
-        Pattern pattern = Pattern.compile("\\d+");
-        Matcher matcher = pattern.matcher(from);
-
-        while (matcher.find())
-        {
-            result += matcher.group();
-        }
-
-        return result.isEmpty() ? 0 : Integer.parseInt(result);
     }
 }

@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>us.flowdesigns</groupId>
     <artifactId>Wave</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <wave.build.version>${project.version}</wave.build.version>
-        <build.codename>Wave</build.codename>
+        <build.codename>Aesthetic</build.codename>
         <build.date>${maven.build.timestamp}</build.date>
         <jar.finalName>${project.name}</jar.finalName>
         <timestamp>${maven.build.timestamp}</timestamp>
@@ -53,11 +53,11 @@
                 </configuration>
             </plugin>
 
-            <!-- Git describe -->
+            <!-- Git describe !-->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.2.4</version>
+                <version>2.2.5</version>
                 <executions>
                     <execution>
                         <id>get-the-git-infos</id>

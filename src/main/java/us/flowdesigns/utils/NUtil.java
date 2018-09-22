@@ -5,11 +5,6 @@ import org.bukkit.ChatColor;
 
 public class NUtil
 {
-    public static String colorize(String string)
-    {
-        return ChatColor.translateAlternateColorCodes('&', string);
-    }
-
     @SuppressWarnings("unchecked")
     public static <T> T getField(Object from, String name)
     {

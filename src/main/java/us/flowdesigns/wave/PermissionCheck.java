@@ -1,6 +1,7 @@
-package us.flowdesigns.listener;
+package us.flowdesigns.wave;
 
 import java.util.HashMap;
+import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -8,7 +9,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.permissions.PermissionAttachment;
 import us.flowdesigns.utils.NLog;
 import static us.flowdesigns.wave.Wave.plugin;
-import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 
 public class PermissionCheck implements Listener
 {
@@ -104,7 +104,7 @@ public class PermissionCheck implements Listener
         perms.put(player, attachment);
     }
 
-    public void clear()
+    void clear()
     {
         perms.clear();
     }

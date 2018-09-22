@@ -9,17 +9,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import us.flowdesigns.commands.CMD_Handler;
 import us.flowdesigns.commands.CMD_Loader;
-import us.flowdesigns.listener.PermissionCheck;
-import us.flowdesigns.listener.UpdateChecker;
+import us.flowdesigns.utils.Config;
 import us.flowdesigns.utils.NLog;
 
 public class Wave extends JavaPlugin
 {
     public static final BuildProperties build = new BuildProperties();
     public static Wave plugin;
-    public static Server server;
-    public static String pluginName;
-    public static String pluginVersion;
+    private static Server server;
+    private static String pluginName;
+    private static String pluginVersion;
 
     @Override
     public void onLoad()
@@ -37,7 +36,6 @@ public class Wave extends JavaPlugin
     {
         build.load(Wave.plugin);
         server.getPluginManager().registerEvents(new PermissionCheck(), Wave.plugin);
-        server.getPluginManager().registerEvents(new UpdateChecker(), Wave.plugin);
         Metrics metrics = new Metrics(this);
         Config.loadConfigs();
         new BukkitRunnable()
@@ -55,7 +53,9 @@ public class Wave extends JavaPlugin
     public void onDisable()
     {
         PermissionCheck pCheck = new PermissionCheck();
+        Updater updater = new Updater(plugin);
         pCheck.clear();
+        updater.update();
     }
 
     @Override
@@ -73,11 +73,12 @@ public class Wave extends JavaPlugin
         public String date;
         public String head;
 
-        public void load(Wave plugin)
+        void load(Wave plugin)
         {
             try
             {
                 final Properties props;
+
                 try (InputStream in = plugin.getResource("build.properties"))
                 {
                     props = new Properties();
@@ -89,7 +90,7 @@ public class Wave extends JavaPlugin
                 version = props.getProperty("buildVersion", pluginVersion);
                 number = props.getProperty("buildNumber", "1");
                 date = props.getProperty("buildDate", "unknown");
-                head = props.getProperty("buildHead", "unknown".replace("${git.commit.id.abbrev}", "unknown"));
+                head = props.getProperty("buildHead", "unknown").replace("${git.commit.id.abbrev}", "unknown");
             }
             catch (Exception ex)
             {
