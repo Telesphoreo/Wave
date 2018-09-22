@@ -1,7 +1,8 @@
 #
-# Wave v1.1.1
+# Wave v1.2.0
 #
 
+# Add the permission nodes you DON'T want players to have
 # TotalFreedomMod is required for these permission nodes to work
 
 operator:
@@ -41,7 +42,14 @@ operator:
   - essentials.tptoggle.others
   - essentials.fly.others
   - essentials.spawn.others
+  - essentials.vanish
+  - essentials.vanish.others
+  - essentials.ptime.others
+  - essentials.pweather.others
   - essentials.weather
+  - essentials.msg.multiple
+  - essentials.chat.spy.exempt
+  - essentials.chat.ignoreexempt
   - libsdisguises.reload
   - libsdisguises.disguise.item_frame
   - libsdisguises.disguise.ender_dragon
@@ -81,7 +89,6 @@ operator:
   - essentials.clearinventory.all
   - essentials.clearinventory.multiple
   - wave.reload
-  - wave.update
 superadmin:
   permissions:
   - essentials.antioch
@@ -145,3 +152,5 @@ superadmin:
   - libsdisguises.disguiseradius.ender_crystal
   - libsdisguises.disguiseradius.area_affect_cloud
   - libsdisguises.disguiseradius.wither
+
+enable_updater: true

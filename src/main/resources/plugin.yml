@@ -1,10 +1,11 @@
 name: Wave
-version: 1.1.1
+version: 1.2.0
 description: A reverse permissions plugin
 author: Model_3
 main: us.flowdesigns.wave.Wave
 depend: [TotalFreedomMod]
+api-version: 1.13
 commands:
   wave:
-    usage: /<command> [reload | update]
-    description: Shows information about or update Wave
+    usage: /<command> [reload]
+    description: Shows information about or reload Wave

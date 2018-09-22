@@ -4,20 +4,22 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import us.flowdesigns.listener.PermissionCheck;
+import us.flowdesigns.wave.PermissionCheck;
 import us.flowdesigns.utils.NLog;
 import us.flowdesigns.wave.Wave;
 
 @CommandPermissions(source = SourceType.BOTH)
-@CommandParameters(description = "Shows information about or reload Wave", usage = "/<command> [reload | update]")
+@CommandParameters(description = "Shows information about or reload Wave", usage = "/<command> [reload]")
 public class Command_wave extends BaseCommand
 {
     @Override
     public boolean run(final CommandSender sender, final Player sender_p, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole)
     {
         Wave.BuildProperties build = Wave.build;
+        PermissionCheck pCheck = new PermissionCheck();
         if (args.length == 0)
         {
+            sender.sendMessage(ChatColor.GOLD + "Wave is a permission plugin designed for servers running TotalFreedomMod");
             sender.sendMessage(ChatColor.GOLD + String.format("Version "
                             + ChatColor.BLUE + "%s - %s Build %s " + ChatColor.GOLD + "("
                             + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
@@ -25,16 +27,12 @@ public class Command_wave extends BaseCommand
                     build.version,
                     build.number,
                     build.head));
-            sender.sendMessage(String.format(ChatColor.GOLD + "Compiled "
+            sender.sendMessage(String.format(ChatColor.GOLD + "Compiled on "
                             + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by "
                             + ChatColor.BLUE + "%s",
                     build.date,
                     build.author));
-            sender.sendMessage(ChatColor.GOLD + "Designed for: " + ChatColor.BLUE + "Spigot 1.13.1");
-            if (sender.hasPermission("wave.reload"))
-            {
-                sender.sendMessage(ChatColor.GREEN + "Type /wave reload to reload the configuration file");
-            }
+            sender.sendMessage(ChatColor.GOLD + "Visit " + ChatColor.BLUE + "https://github.com/Telesphoreo/Wave" + ChatColor.GOLD + " for more information");
             return true;
         }
 
@@ -49,7 +47,7 @@ public class Command_wave extends BaseCommand
                 }
                 try
                 {
-                    Wave.plugin.reloadConfig();
+                    plugin.reloadConfig();
                     sender.sendMessage(Messages.RELOADED);
                 }
                 catch (Exception ex)
@@ -59,7 +57,6 @@ public class Command_wave extends BaseCommand
                 }
                 for (Player player : server.getOnlinePlayers())
                 {
-                    PermissionCheck pCheck = new PermissionCheck();
                     pCheck.reloadPermissions(player);
                 }
                 return true;

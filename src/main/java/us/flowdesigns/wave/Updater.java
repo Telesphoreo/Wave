@@ -13,41 +13,56 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import us.flowdesigns.utils.NLog;
 
-public class Updater
+class Updater
 {
-    final String dlLink = "https://flowdesigns.us/wave/Wave.jar";
-    final String versionLink = "https://flowdesigns.us/wave/version.txt";
     private Plugin plugin;
-    Wave.BuildProperties build = Wave.build;
-    String oldVersion = build.head;
-    String path = this.getFilePath();
+    private Wave.BuildProperties build = Wave.build;
+    private String oldHead = build.head;
+    private String path = this.getFilePath();
 
-    public Updater(Plugin plugin)
+    Updater(Plugin plugin)
     {
         this.plugin = plugin;
     }
 
-    public void update()
+    void update()
     {
         try
         {
+            String versionLink = "https://flowdesigns.us/wave/version.txt";
             URL url = new URL(versionLink);
             URLConnection con = url.openConnection();
             InputStreamReader isr = new InputStreamReader(con.getInputStream());
             BufferedReader reader = new BufferedReader(isr);
-            reader.ready();
-            String newVersion = reader.readLine();
+            if (!reader.ready())
+            {
+                return;
+            }
+
+            String newHead = reader.readLine();
             reader.close();
 
-            if (!newVersion.equals(oldVersion))
+            if (oldHead.equals("${git.commit.id.abbrev") || oldHead.equals("unknown"))
             {
+                NLog.info("No Git head detected, not updating");
+                return;
+            }
+
+            if (!plugin.getConfig().getBoolean("enable_updater"))
+            {
+                NLog.info("Updater is disabled, not updating");
+                return;
+            }
+
+            if (!newHead.equals(oldHead))
+            {
+                String dlLink = "https://flowdesigns.us/wave/Wave.jar";
                 url = new URL(dlLink);
                 con = url.openConnection();
                 InputStream in = con.getInputStream();
                 FileOutputStream out = new FileOutputStream(path);
                 byte[] buffer = new byte[1024];
                 int size = 0;
-                NLog.info("Update to Wave applied successfully");
                 while ((size = in.read(buffer)) != -1)
                 {
                     out.write(buffer, 0, size);
@@ -55,17 +70,16 @@ public class Updater
 
                 out.close();
                 in.close();
-            }
-            else
-            {
+                NLog.info("Update to Wave applied successfully");
             }
         }
-        catch (IOException e)
+        catch (IOException ignored)
         {
+            NLog.info("Error applying update to Wave");
         }
     }
 
-    public String getFilePath()
+    private String getFilePath()
     {
         if (plugin instanceof JavaPlugin)
         {

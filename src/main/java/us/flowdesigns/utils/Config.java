@@ -1,4 +1,4 @@
-package us.flowdesigns.wave;
+package us.flowdesigns.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,6 +9,7 @@ import java.util.Map;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
+import us.flowdesigns.wave.Wave;
 
 public class Config
 {
@@ -132,7 +133,7 @@ public class Config
         /**
          * Gets the file associated with the enum.
          *
-         * @return File associated wiht the enum
+         * @return File associated with the enum
          */
         public String getFile()
         {
