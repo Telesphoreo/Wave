@@ -4,8 +4,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import us.flowdesigns.wave.PermissionCheck;
 import us.flowdesigns.utils.NLog;
+import us.flowdesigns.wave.PermissionCheck;
 import us.flowdesigns.wave.Wave;
 
 @CommandPermissions(source = SourceType.BOTH)
@@ -16,7 +16,7 @@ public class Command_wave extends BaseCommand
     public boolean run(final CommandSender sender, final Player sender_p, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole)
     {
         Wave.BuildProperties build = Wave.build;
-        PermissionCheck pCheck = new PermissionCheck();
+        PermissionCheck PermissionCheck = new PermissionCheck();
         if (args.length == 0)
         {
             sender.sendMessage(ChatColor.GOLD + "Wave is a permission plugin designed for servers running TotalFreedomMod");
@@ -57,7 +57,7 @@ public class Command_wave extends BaseCommand
                 }
                 for (Player player : server.getOnlinePlayers())
                 {
-                    pCheck.reloadPermissions(player);
+                    PermissionCheck.reloadPermissions(player);
                 }
                 return true;
             }

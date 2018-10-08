@@ -42,7 +42,7 @@ class Updater
             String newHead = reader.readLine();
             reader.close();
 
-            if (oldHead.equals("${git.commit.id.abbrev") || oldHead.equals("unknown"))
+            if (oldHead.equals("${git.commit.id.abbrev}") || oldHead.equals("unknown"))
             {
                 NLog.info("No Git head detected, not updating");
                 return;

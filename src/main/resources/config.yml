@@ -1,5 +1,5 @@
 #
-# Wave v1.2.0
+# Wave v1.3.0
 #
 
 # Add the permission nodes you DON'T want players to have
@@ -153,4 +153,5 @@ superadmin:
   - libsdisguises.disguiseradius.area_affect_cloud
   - libsdisguises.disguiseradius.wither
 
+# Should the updater be enabled?
 enable_updater: true

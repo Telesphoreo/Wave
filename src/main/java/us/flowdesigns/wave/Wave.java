@@ -10,6 +10,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import us.flowdesigns.commands.CMD_Handler;
 import us.flowdesigns.commands.CMD_Loader;
 import us.flowdesigns.utils.Config;
+import us.flowdesigns.utils.Metrics;
 import us.flowdesigns.utils.NLog;
 
 public class Wave extends JavaPlugin

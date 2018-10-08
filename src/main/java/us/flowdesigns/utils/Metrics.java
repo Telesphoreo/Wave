@@ -1,4 +1,4 @@
-package us.flowdesigns.wave;
+package us.flowdesigns.utils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

@@ -1,5 +1,5 @@
 name: Wave
-version: 1.2.0
+version: ${project.version}
 description: A reverse permissions plugin
 author: Model_3
 main: us.flowdesigns.wave.Wave

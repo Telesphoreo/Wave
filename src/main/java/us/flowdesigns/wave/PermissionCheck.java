@@ -28,33 +28,13 @@ public class PermissionCheck implements Listener
 
         if (TotalFreedomMod.plugin().al.isAdmin(player))
         {
-            if (plugin.getConfig().isList("superadmin.permissions"))
-            {
-                for (String c : plugin.getConfig().getStringList("superadmin.permissions"))
-                {
-                    attachment.setPermission(c.toLowerCase(), false);
-                }
-            }
-            else
-            {
-                NLog.severe("superadmin.permissions is not a list!");
-            }
-            NLog.info("Registered " + player.getName() + " as a superadmin with the Wave permission system");
+            readAdminList(attachment);
+            NLog.info("Registered " + player.getName() + " as an admin with the Wave permission system");
         }
         else
         {
-            if (plugin.getConfig().isList("operator.permissions"))
-            {
-                for (String c : plugin.getConfig().getStringList("operator.permissions"))
-                {
-                    attachment.setPermission(c.toLowerCase(), false);
-                }
-            }
-            else
-            {
-                NLog.severe("operator.permissions is not a list!");
-            }
-            NLog.info("Registered " + player.getName() + " as an operator with the Wave permission system");
+            readOpList(attachment);
+            NLog.info("Registered " + player.getName() + " as an OP with the Wave permission system");
         }
         perms.put(player, attachment);
     }
@@ -67,39 +47,12 @@ public class PermissionCheck implements Listener
 
         if (TotalFreedomMod.plugin().al.isAdmin(player))
         {
-            if (plugin.getConfig().isList("superadmin.permissions"))
-            {
-                for (String d : plugin.getConfig().getStringList("operator.permissions"))
-                {
-                    attachment.setPermission(d.toLowerCase(), true);
-                }
-                for (String c : plugin.getConfig().getStringList("superadmin.permissions"))
-                {
-                    attachment.setPermission(c.toLowerCase(), false);
-                }
-            }
-            else
-            {
-                NLog.severe("superadmin.permissions is not a list!");
-            }
+            flushOpPermissions(attachment);
+            readAdminList(attachment);
         }
         else
         {
-            if (plugin.getConfig().isList("operator.permissions"))
-            {
-                for (String b : plugin.getConfig().getStringList("superadmin.permissions"))
-                {
-                    attachment.setPermission(b.toLowerCase(), false);
-                }
-                for (String c : plugin.getConfig().getStringList("operator.permissions"))
-                {
-                    attachment.setPermission(c.toLowerCase(), false);
-                }
-            }
-            else
-            {
-                NLog.severe("operator.permissions is not a list!");
-            }
+            readOpList(attachment);
         }
         perms.put(player, attachment);
     }
@@ -107,5 +60,51 @@ public class PermissionCheck implements Listener
     void clear()
     {
         perms.clear();
+    }
+
+    private void readOpList(PermissionAttachment attachment)
+    {
+        if (plugin.getConfig().isList("operator.permissions"))
+        {
+            for (String c : plugin.getConfig().getStringList("operator.permissions"))
+            {
+                attachment.setPermission(c.toLowerCase(), false);
+            }
+        }
+        else
+        {
+            NLog.severe("operator.permissions is not a list!");
+        }
+
+    }
+
+    private void flushOpPermissions(PermissionAttachment attachment)
+    {
+        if (plugin.getConfig().isList("operator.permissions"))
+        {
+            for (String c : plugin.getConfig().getStringList("operator.permissions"))
+            {
+                attachment.setPermission(c.toLowerCase(), true);
+            }
+        }
+        else
+        {
+            NLog.severe("operator.permissions is not a list!");
+        }
+    }
+
+    private void readAdminList(PermissionAttachment attachment)
+    {
+        if (plugin.getConfig().isList("superadmin.permissions"))
+        {
+            for (String c : plugin.getConfig().getStringList("superadmin.permissions"))
+            {
+                attachment.setPermission(c.toLowerCase(), false);
+            }
+        }
+        else
+        {
+            NLog.severe("superadmin.permissions is not a list!");
+        }
     }
 }
