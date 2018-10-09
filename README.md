@@ -6,7 +6,7 @@ Wave is a reverse permission plugin for servers running TotalFreedomMod.
 In the configuration file, you have two sections: operators and superadmins. Add any permission node that you would like the player to not have. For example, if I were to add ```- essentials.antioch``` to the operator section, they would not be able to use /antioch. There is no inheritance, so you would have to add it to the superadmin section to block admins from using it. Wave already comes with a list of pre-defined permissions that you are free to use or remove.
 
 ## Developers
-Developers can add Wave as a dependency with Jitpack. In your repository section, Jitpack:
+Developers can add Wave as a dependency with Jitpack. Use the following to add Jitpack as a dependency.
 ```yaml
         <repository>
             <id>jitpack.io</id>
@@ -14,7 +14,7 @@ Developers can add Wave as a dependency with Jitpack. In your repository section
         </repository>
 ```
 
-Now you can add Wave as a dependency:
+Now you can add Wave as a dependency by doing the following:
 ```yaml
         <dependency>
             <groupId>com.github.Telesphoreo</groupId>
