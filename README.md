@@ -1,9 +1,12 @@
 # Ｗａｖｅ　援ケイ [![Build Status](https://travis-ci.org/Telesphoreo/Wave.svg?branch=master)](https://travis-ci.org/Telesphoreo/Wave)
 
-Wave is a reverse permissions plugin for servers running TotalFreedom. It automatically adds players to their group based on their respective rank. Pretty cool.
+Wave is a reverse permissions plugin for servers running TotalFreedomMod. It automatically adds players to their group based on their respective rank. Pretty cool.
 
 ## How Wave works
 In the configuration file, you have two sections: operators and superadmins. Add any permission node that you would like the player to not have. For example, if I were to add ```- essentials.antioch``` to the operator section, they would not be able to use /antioch. There is no inheritance, so you would have to add it to the superadmin section to block admins from using it. Wave already comes with a list of pre-defined permissions that you are free to use or remove.
+
+## TotalFreedomMod Bridge
+Please note that the official TotalFreedomMod builds do not fully support Wave. If you would like full support with Wave, use this version of TotalFreedomMod: https://github.com/Telesphoreo/TotalFreedomMod/releases. If you choose not too, whenever an admin gets added or removed, you will have to do ```/wave reload``` to update their permissions.
 
 ## Developers
 Developers can add Wave as a dependency with Jitpack. Use the following to add Jitpack as a dependency.
