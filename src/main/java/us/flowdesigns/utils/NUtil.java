@@ -1,7 +1,6 @@
 package us.flowdesigns.utils;
 
 import java.lang.reflect.Field;
-import org.bukkit.ChatColor;
 
 public class NUtil
 {

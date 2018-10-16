@@ -12,7 +12,8 @@ import static us.flowdesigns.wave.Wave.plugin;
 
 public class PermissionCheck implements Listener
 {
-    HashMap<Player, PermissionAttachment> perms = new HashMap<>();
+    HashMap<Player, PermissionAttachment> ops = new HashMap<>();
+    HashMap<Player, PermissionAttachment> admins = new HashMap<>();
 
     @EventHandler
     public boolean onPlayerJoin(PlayerJoinEvent event)
@@ -26,22 +27,32 @@ public class PermissionCheck implements Listener
         PermissionAttachment attachment = player.addAttachment(plugin);
         attachment.getPermissible().addAttachment(plugin);
 
+        if (TotalFreedomMod.plugin().al.isAdminImpostor(player))
+        {
+            readOpList(attachment);
+            NLog.info("Registered " + player.getName() + " as an impostor, giving OP permissions");
+            ops.put(player, attachment);
+            return;
+        }
+
         if (TotalFreedomMod.plugin().al.isAdmin(player))
         {
             readAdminList(attachment);
             NLog.info("Registered " + player.getName() + " as an admin with the Wave permission system");
+            admins.put(player, attachment);
         }
         else
         {
             readOpList(attachment);
             NLog.info("Registered " + player.getName() + " as an OP with the Wave permission system");
+            ops.put(player, attachment);
         }
-        perms.put(player, attachment);
     }
 
     public void reloadPermissions(Player player)
     {
-        perms.remove(player);
+        ops.remove(player);
+        admins.remove(player);
         PermissionAttachment attachment = player.addAttachment(plugin);
         attachment.getPermissible().addAttachment(plugin);
 
@@ -49,20 +60,16 @@ public class PermissionCheck implements Listener
         {
             flushOpPermissions(attachment);
             readAdminList(attachment);
+            admins.put(player, attachment);
         }
         else
         {
             readOpList(attachment);
+            ops.put(player, attachment);
         }
-        perms.put(player, attachment);
     }
 
-    void clear()
-    {
-        perms.clear();
-    }
-
-    private void readOpList(PermissionAttachment attachment)
+    void readOpList(PermissionAttachment attachment)
     {
         if (plugin.getConfig().isList("operator.permissions"))
         {
@@ -75,10 +82,9 @@ public class PermissionCheck implements Listener
         {
             NLog.severe("operator.permissions is not a list!");
         }
-
     }
 
-    private void flushOpPermissions(PermissionAttachment attachment)
+    void flushOpPermissions(PermissionAttachment attachment)
     {
         if (plugin.getConfig().isList("operator.permissions"))
         {
@@ -93,7 +99,7 @@ public class PermissionCheck implements Listener
         }
     }
 
-    private void readAdminList(PermissionAttachment attachment)
+    void readAdminList(PermissionAttachment attachment)
     {
         if (plugin.getConfig().isList("superadmin.permissions"))
         {

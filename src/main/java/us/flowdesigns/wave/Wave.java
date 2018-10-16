@@ -53,9 +53,7 @@ public class Wave extends JavaPlugin
     @Override
     public void onDisable()
     {
-        PermissionCheck pCheck = new PermissionCheck();
         Updater updater = new Updater(plugin);
-        pCheck.clear();
         updater.update();
     }
 

@@ -1,4 +1,4 @@
-name: Wave
+name: ${project.name}
 version: ${project.version}
 description: A reverse permissions plugin
 author: Model_3

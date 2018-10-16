@@ -29,7 +29,7 @@ class Updater
     {
         try
         {
-            String versionLink = "https://flowdesigns.us/wave/version.txt";
+            String versionLink = "https://www.flowdesigns.us/wave/version.txt";
             URL url = new URL(versionLink);
             URLConnection con = url.openConnection();
             InputStreamReader isr = new InputStreamReader(con.getInputStream());
@@ -44,13 +44,12 @@ class Updater
 
             if (oldHead.equals("${git.commit.id.abbrev}") || oldHead.equals("unknown"))
             {
-                NLog.info("No Git head detected, not updating");
+                NLog.info("No Git head detected, not updating Wave");
                 return;
             }
 
             if (!plugin.getConfig().getBoolean("enable_updater"))
             {
-                NLog.info("Updater is disabled, not updating");
                 return;
             }
 
@@ -73,7 +72,7 @@ class Updater
                 NLog.info("Update to Wave applied successfully");
             }
         }
-        catch (IOException ignored)
+        catch (IOException ex)
         {
             NLog.info("Error applying update to Wave");
         }
