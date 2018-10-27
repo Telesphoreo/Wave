@@ -6,11 +6,10 @@
 
     <groupId>us.flowdesigns</groupId>
     <artifactId>Wave</artifactId>
-    <version>1.4.0</version>
+    <version>1.4.1</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <wave.build.version>${project.version}</wave.build.version>
         <build.codename>Aesthetic</build.codename>
         <jar.finalName>${project.name}</jar.finalName>
         <timestamp>${maven.build.timestamp}</timestamp>
@@ -31,13 +30,13 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.13.1-R0.1-SNAPSHOT</version>
+            <version>1.13.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.Telesphoreo</groupId>
             <artifactId>TotalFreedomMod</artifactId>
-            <version>2018.3.1</version>
+            <version>2018.4.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
