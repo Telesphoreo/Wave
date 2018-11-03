@@ -10,7 +10,7 @@ Please note that the official TotalFreedomMod builds do not fully support Wave. 
 
 ## Developers
 Developers can add Wave as a dependency with Jitpack. First, you have to add the Jitpack repository.
-```yaml
+```xml
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
@@ -18,7 +18,7 @@ Developers can add Wave as a dependency with Jitpack. First, you have to add the
 ```
 
 Now, you can add Wave as a dependency by pasting the following:
-```yaml
+```xml
         <dependency>
             <groupId>com.github.Telesphoreo</groupId>
             <artifactId>Wave</artifactId>
