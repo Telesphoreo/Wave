@@ -6,7 +6,7 @@ Wave is a reverse permissions plugin for servers running TotalFreedomMod. It aut
 In the configuration file, you have two sections: operators and superadmins. Add any permission node that you would like the player to not have. For example, if I were to add ```- essentials.antioch``` to the operator section, they would not be able to use /antioch. There is no inheritance, so you would have to add it to the superadmin section to block admins from using /antioch as well. Wave already comes with a list of pre-defined permissions that you are free to use or remove.
 
 ## TotalFreedomMod Bridge
-Please note that the official TotalFreedomMod builds do not fully support Wave. If you would like full support with Wave, use a version of TotalFreedomMod from here (>2018.3.2): https://github.com/Telesphoreo/TotalFreedomMod/releases. If you choose not too, whenever an admin gets added or removed, you will have to do ```/wave reload``` to update their permission groups. This does not affect the admin removal.
+Please note that the official TotalFreedomMod builds do not fully support Wave. If you would like full support with Wave, use a version of TotalFreedomMod from here (>2018.3.2): https://github.com/Telesphoreo/TotalFreedomMod/releases. If you choose not too, whenever an admin gets added or removed, you will have to do ```/reloadpermissions``` to update their permission groups. This does not affect the admin removal.
 
 ## Developers
 Developers can add Wave as a dependency with Jitpack. First, you have to add the Jitpack repository.
@@ -22,7 +22,7 @@ Now, you can add Wave as a dependency by pasting the following:
         <dependency>
             <groupId>com.github.Telesphoreo</groupId>
             <artifactId>Wave</artifactId>
-            <version>1.4.1</version>
+            <version>1.5.0</version>
             <scope>provided</scope>
         </dependency>
 ```
@@ -33,12 +33,19 @@ You can hook into the PermissionsCheck using the following:
 ```
 You can now use any of the methods in the class.
 
-## Permission Nodes
+## Command Usages
 Command: /wave reload
 <br>
 Permission: wave.reload
 <br>
 Usage: Reloads the plugin and configuration file
-
+<hr>
+Command: /reloadpermissions <<player> | -a>
+<br>
+Aliases: /rp, /reloadperms
+<br>
+Permission: wave.reloadpermissions
+<br>
+Usage: Reload permissions for everyone or a player
 ## Updating
-Wave has an automatic updater that runs on a server shutdown or reload. You can disable it in the configuration file.
+Wave has an automatic updater that runs on a server shutdown or reload.

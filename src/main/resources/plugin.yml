@@ -9,3 +9,7 @@ commands:
   wave:
     usage: /<command> [reload]
     description: Shows information about or reload Wave
+  reloadpermissions:
+    usage: /<command> <<player> | -a>
+    description: Reload permissions for everyone or a player
+    aliases: [rp,reloadperms]

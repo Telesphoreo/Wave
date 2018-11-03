@@ -1,5 +1,5 @@
 #
-# Wave v1.4.1
+# Wave v1.5.0
 #
 
 # Add the permission nodes you DON'T want players to have
@@ -14,81 +14,84 @@ operator:
   - essentials.broadcast
   - essentials.broadcastworld
   - essentials.burn
+  - essentials.chat.ignoreexempt
+  - essentials.chat.spy.exempt
+  - essentials.clearinventory.all
+  - essentials.clearinventory.multiple
   - essentials.createkit
   - essentials.essentials
   - essentials.fireball
+  - essentials.fly.others
   - essentials.gamemode
   - essentials.helpop
   - essentials.ignore
   - essentials.kick
   - essentials.kickall
   - essentials.kill
+  - essentials.msg.multiple
   - essentials.mute
   - essentials.nuke
   - essentials.powertool
   - essentials.powertooltoggle
+  - essentials.ptime.others
+  - essentials.pweather.others
+  - essentials.seen.ip
   - essentials.setjail
+  - essentials.spawn.others
+  - essentials.speed.others
   - essentials.sudo
   - essentials.tempban
   - essentials.thunder
   - essentials.tpaall
   - essentials.tpall
+  - essentials.tptoggle.others
   - essentials.unban
   - essentials.unbanip
-  - essentials.warp.others
-  - essentials.speed.others
-  - essentials.whois.ip
-  - essentials.seen.ip
-  - essentials.tptoggle.others
-  - essentials.fly.others
-  - essentials.spawn.others
   - essentials.vanish
   - essentials.vanish.others
-  - essentials.ptime.others
-  - essentials.pweather.others
+  - essentials.warp.others
   - essentials.weather
-  - essentials.msg.multiple
-  - essentials.chat.spy.exempt
-  - essentials.chat.ignoreexempt
-  - libsdisguises.reload
-  - libsdisguises.disguise.item_frame
-  - libsdisguises.disguise.ender_dragon
-  - libsdisguises.disguise.player
-  - libsdisguises.disguise.giant
-  - libsdisguises.disguise.ghast
-  - libsdisguises.disguise.magma_cube
-  - libsdisguises.disguise.slime
+  - essentials.whois.ip
+  - libsdisguises.disguise.area_affect_cloud
   - libsdisguises.disguise.dropped_item
   - libsdisguises.disguise.ender_crystal
-  - libsdisguises.disguise.area_affect_cloud
+  - libsdisguises.disguise.ender_dragon
+  - libsdisguises.disguise.ghast
+  - libsdisguises.disguise.giant
+  - libsdisguises.disguise.item_frame
+  - libsdisguises.disguise.magma_cube
+  - libsdisguises.disguise.player
+  - libsdisguises.disguise.slime
   - libsdisguises.disguise.wither
-  - libsdisguises.disguiseplayer.*
-  - libsdisguises.undisguiseplayer
-  - libsdisguises.disguiseentity.item_frame
-  - libsdisguises.disguiseentity.ender_dragon
-  - libsdisguises.disguiseentity.player
-  - libsdisguises.disguiseentity.giant
-  - libsdisguises.disguiseentity.ghast
-  - libsdisguises.disguiseentity.magma_cube
-  - libsdisguises.disguiseentity.slime
+  - libsdisguises.disguiseentity.area_affect_cloud
   - libsdisguises.disguiseentity.dropped_item
   - libsdisguises.disguiseentity.ender_crystal
-  - libsdisguises.disguiseentity.area_affect_cloud
+  - libsdisguises.disguiseentity.ender_dragon
+  - libsdisguises.disguiseentity.ghast
+  - libsdisguises.disguiseentity.giant
+  - libsdisguises.disguiseentity.item_frame
+  - libsdisguises.disguiseentity.magma_cube
+  - libsdisguises.disguiseentity.player
+  - libsdisguises.disguiseentity.slime
   - libsdisguises.disguiseentity.wither
-  - libsdisguises.disguiseradius.item_frame
-  - libsdisguises.disguiseradius.ender_dragon
-  - libsdisguises.disguiseradius.player
-  - libsdisguises.disguiseradius.giant
-  - libsdisguises.disguiseradius.ghast
-  - libsdisguises.disguiseradius.magma_cube
-  - libsdisguises.disguiseradius.slime
+  - libsdisguises.disguiseplayer.*
+  - libsdisguises.disguiseradius.area_affect_cloud
   - libsdisguises.disguiseradius.dropped_item
   - libsdisguises.disguiseradius.ender_crystal
-  - libsdisguises.disguiseradius.area_affect_cloud
+  - libsdisguises.disguiseradius.ender_dragon
+  - libsdisguises.disguiseradius.ghast
+  - libsdisguises.disguiseradius.giant
+  - libsdisguises.disguiseradius.item_frame
+  - libsdisguises.disguiseradius.magma_cube
+  - libsdisguises.disguiseradius.player
+  - libsdisguises.disguiseradius.slime
   - libsdisguises.disguiseradius.wither
-  - essentials.clearinventory.all
-  - essentials.clearinventory.multiple
+  - libsdisguises.reload
+  - libsdisguises.undisguiseplayer
+  - voxelsniper.brush.entity
+  - voxelsniper.brush.removentity
   - wave.reload
+  - wave.reloadpermissions
 superadmin:
   permissions:
   - essentials.antioch
@@ -117,41 +120,38 @@ superadmin:
   - essentials.unban
   - essentials.unbanip
   - essentials.weather
-  - libsdisguises.disguise.item_frame
-  - libsdisguises.disguise.ender_dragon
-  - libsdisguises.disguise.player
-  - libsdisguises.disguise.giant
-  - libsdisguises.disguise.ghast
-  - libsdisguises.disguise.magma_cube
-  - libsdisguises.disguise.slime
+  - libsdisguises.disguise.area_affect_cloud
   - libsdisguises.disguise.dropped_item
   - libsdisguises.disguise.ender_crystal
-  - libsdisguises.disguise.area_affect_cloud
+  - libsdisguises.disguise.ender_dragon
+  - libsdisguises.disguise.ghast
+  - libsdisguises.disguise.giant
+  - libsdisguises.disguise.item_frame
+  - libsdisguises.disguise.magma_cube
+  - libsdisguises.disguise.player
+  - libsdisguises.disguise.slime
   - libsdisguises.disguise.wither
-  - libsdisguises.disguiseplayer.*
-  - libsdisguises.undisguiseplayer
-  - libsdisguises.disguiseentity.item_frame
-  - libsdisguises.disguiseentity.ender_dragon
-  - libsdisguises.disguiseentity.player
-  - libsdisguises.disguiseentity.giant
-  - libsdisguises.disguiseentity.ghast
-  - libsdisguises.disguiseentity.magma_cube
-  - libsdisguises.disguiseentity.slime
+  - libsdisguises.disguiseentity.area_affect_cloud
   - libsdisguises.disguiseentity.dropped_item
   - libsdisguises.disguiseentity.ender_crystal
-  - libsdisguises.disguiseentity.area_affect_cloud
+  - libsdisguises.disguiseentity.ender_dragon
+  - libsdisguises.disguiseentity.ghast
+  - libsdisguises.disguiseentity.giant
+  - libsdisguises.disguiseentity.item_frame
+  - libsdisguises.disguiseentity.magma_cube
+  - libsdisguises.disguiseentity.player
+  - libsdisguises.disguiseentity.slime
   - libsdisguises.disguiseentity.wither
-  - libsdisguises.disguiseradius.item_frame
-  - libsdisguises.disguiseradius.ender_dragon
-  - libsdisguises.disguiseradius.player
-  - libsdisguises.disguiseradius.giant
-  - libsdisguises.disguiseradius.ghast
-  - libsdisguises.disguiseradius.magma_cube
-  - libsdisguises.disguiseradius.slime
+  - libsdisguises.disguiseplayer.*
+  - libsdisguises.disguiseradius.area_affect_cloud
   - libsdisguises.disguiseradius.dropped_item
   - libsdisguises.disguiseradius.ender_crystal
-  - libsdisguises.disguiseradius.area_affect_cloud
+  - libsdisguises.disguiseradius.ender_dragon
+  - libsdisguises.disguiseradius.ghast
+  - libsdisguises.disguiseradius.giant
+  - libsdisguises.disguiseradius.item_frame
+  - libsdisguises.disguiseradius.magma_cube
+  - libsdisguises.disguiseradius.player
+  - libsdisguises.disguiseradius.slime
   - libsdisguises.disguiseradius.wither
-
-# Should the updater be enabled?
-enable_updater: true
+  - libsdisguises.undisguiseplayer

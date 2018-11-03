@@ -38,13 +38,13 @@ public class PermissionCheck implements Listener
         if (TotalFreedomMod.plugin().al.isAdmin(player))
         {
             readAdminList(attachment);
-            NLog.info("Registered " + player.getName() + " as an admin with the Wave permission system");
+            NLog.info("Registered " + player.getName() + " as an admin with Wave");
             admins.put(player, attachment);
         }
         else
         {
             readOpList(attachment);
-            NLog.info("Registered " + player.getName() + " as an OP with the Wave permission system");
+            NLog.info("Registered " + player.getName() + " as an OP with Wave");
             ops.put(player, attachment);
         }
     }
@@ -69,7 +69,7 @@ public class PermissionCheck implements Listener
         }
     }
 
-    void readOpList(PermissionAttachment attachment)
+    public void readOpList(PermissionAttachment attachment)
     {
         if (plugin.getConfig().isList("operator.permissions"))
         {
@@ -84,7 +84,7 @@ public class PermissionCheck implements Listener
         }
     }
 
-    void flushOpPermissions(PermissionAttachment attachment)
+    public void flushOpPermissions(PermissionAttachment attachment)
     {
         if (plugin.getConfig().isList("operator.permissions"))
         {
@@ -99,7 +99,7 @@ public class PermissionCheck implements Listener
         }
     }
 
-    void readAdminList(PermissionAttachment attachment)
+    public void readAdminList(PermissionAttachment attachment)
     {
         if (plugin.getConfig().isList("superadmin.permissions"))
         {

@@ -105,10 +105,6 @@ public class Config
             {
                 fis.close();
             }
-            if (fos != null)
-            {
-                fos.close();
-            }
         }
     }
 

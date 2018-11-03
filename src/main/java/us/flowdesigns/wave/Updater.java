@@ -44,12 +44,7 @@ class Updater
 
             if (oldHead.equals("${git.commit.id.abbrev}") || oldHead.equals("unknown"))
             {
-                NLog.info("No Git head detected, not updating Wave");
-                return;
-            }
-
-            if (!plugin.getConfig().getBoolean("enable_updater"))
-            {
+                NLog.info("[Wave] No Git head detected, not updating Wave");
                 return;
             }
 
@@ -69,12 +64,12 @@ class Updater
 
                 out.close();
                 in.close();
-                NLog.info("Update to Wave applied successfully");
+                NLog.info("[Wave] An update has been successfully been applied to Wave.");
             }
         }
         catch (IOException ex)
         {
-            NLog.info("Error applying update to Wave");
+            NLog.info("[Wave] There was an issue fetching the server for an update.");
         }
     }
 
