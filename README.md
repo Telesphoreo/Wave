@@ -40,12 +40,13 @@ Permission: wave.reload
 <br>
 Usage: Reloads the plugin and configuration file
 <hr>
-Command: /reloadpermissions <<player> | -a>
+Command: /reloadpermissions [playername | -a]
 <br>
 Aliases: /rp, /reloadperms
 <br>
 Permission: wave.reloadpermissions
 <br>
 Usage: Reload permissions for everyone or a player
+
 ## Updating
 Wave has an automatic updater that runs on a server shutdown or reload.
