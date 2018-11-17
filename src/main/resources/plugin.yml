@@ -1,6 +1,6 @@
 name: ${project.name}
 version: ${project.version}
-description: A reverse permissions plugin
+description: A permission plugin designed to work with TotalFreedomMod
 author: Model_3
 main: us.flowdesigns.wave.Wave
 depend: [TotalFreedomMod]

@@ -2,6 +2,7 @@ package us.flowdesigns.wave;
 
 import java.io.InputStream;
 import java.util.Properties;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -10,7 +11,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import us.flowdesigns.commands.CMD_Handler;
 import us.flowdesigns.commands.CMD_Loader;
 import us.flowdesigns.utils.Config;
-import us.flowdesigns.utils.Metrics;
 import us.flowdesigns.utils.NLog;
 
 public class Wave extends JavaPlugin
@@ -37,7 +37,7 @@ public class Wave extends JavaPlugin
     {
         build.load(Wave.plugin);
         server.getPluginManager().registerEvents(new PermissionCheck(), Wave.plugin);
-        Metrics metrics = new Metrics(this);
+        new Metrics(this);
         Config.loadConfigs();
         new BukkitRunnable()
         {
