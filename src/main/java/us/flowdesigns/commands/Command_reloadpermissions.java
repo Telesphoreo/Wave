@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import us.flowdesigns.wave.PermissionCheck;
 
 @CommandPermissions(source = SourceType.BOTH)
-@CommandParameters(description = "Reload permissions for everyone or a player", usage = "/<command> <<player> | -a>", aliases = "rp, reloadperms")
+@CommandParameters(description = "Reload permissions for everyone or a player", usage = "/<command> <<player> | -a>", aliases = "rp,reloadperms")
 public class Command_reloadpermissions extends BaseCommand
 {
     @Override

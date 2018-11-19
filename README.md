@@ -22,7 +22,7 @@ Now, you can add Wave as a dependency by pasting the following:
         <dependency>
             <groupId>com.github.Telesphoreo</groupId>
             <artifactId>Wave</artifactId>
-            <version>1.6.0</version>
+            <version>1.6</version>
             <scope>provided</scope>
         </dependency>
 ```
