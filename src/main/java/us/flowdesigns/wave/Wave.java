@@ -1,8 +1,11 @@
 package us.flowdesigns.wave;
 
+import com.sk89q.wepif.PermissionsProvider;
+import com.sk89q.wepif.PermissionsResolverManager;
 import java.io.InputStream;
 import java.util.Properties;
 import org.bstats.bukkit.Metrics;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -35,10 +38,62 @@ public class Wave extends JavaPlugin
     @Override
     public void onEnable()
     {
+        Config.loadConfigs();
+        PermissionsResolverManager.initialize(this);
+        PermissionsResolverManager.getInstance().setPluginPermissionsResolver(this);
+        new PermissionsProvider()
+        {
+            @Override
+            public boolean hasPermission(String s, String s1)
+            {
+                return true;
+            }
+
+            @Override
+            public boolean hasPermission(String s, String s1, String s2)
+            {
+                return true;
+            }
+
+            @Override
+            public boolean inGroup(String s, String s1)
+            {
+                return true;
+            }
+
+            @Override
+            public String[] getGroups(String s)
+            {
+                return new String[0];
+            }
+
+            @Override
+            public boolean hasPermission(OfflinePlayer offlinePlayer, String s)
+            {
+                return true;
+            }
+
+            @Override
+            public boolean hasPermission(String s, OfflinePlayer offlinePlayer, String s1)
+            {
+                return true;
+            }
+
+            @Override
+            public boolean inGroup(OfflinePlayer offlinePlayer, String s)
+            {
+                return true;
+            }
+
+            @Override
+            public String[] getGroups(OfflinePlayer offlinePlayer)
+            {
+                return new String[0];
+            }
+        };
         build.load(Wave.plugin);
         server.getPluginManager().registerEvents(new PermissionCheck(), Wave.plugin);
         new Metrics(this);
-        Config.loadConfigs();
         new BukkitRunnable()
         {
             @Override
