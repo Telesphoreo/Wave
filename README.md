@@ -9,7 +9,7 @@ In the configuration file, you have two sections: operators and superadmins. Add
 Please note that the official TotalFreedomMod builds do not fully support Wave. If you would like full support with Wave, use a version of TotalFreedomMod from here (>2018.3.2): https://github.com/Telesphoreo/TotalFreedomMod/releases. If you choose not too, whenever an admin gets added or removed, you will have to use ```/reloadpermissions``` to update their permission groups. This does not affect the admin removal.
 
 ## WorldEdit Compatibility
-If you have WorldEdit installed, remove the bPermissionsResolver in the ```wepif.yml``` file. This should be in the server directory (not in the plugins folder). **If you do not do this, WorldEdit and/or Wave may not work correctly!** WorldEdit permissions do not properly work with Wave. It is reccomended that you use [TF-WorldEdit](https://github.com/Telesphoreo/TF-WorldEdit) instead.
+If you have WorldEdit installed, remove the bPermissionsResolver in the ```wepif.yml``` file. This should be in the server directory (not in the plugins folder). **If you do not do this, WorldEdit and/or Wave may not work correctly!** WorldEdit permissions do not properly work with Wave. It is reccomended that you use [TF-WorldEdit](https://github.com/Telesphoreo/TF-WorldEdit) instead. You can download a JAR from the [TF-WorldEdit releases page](https://github.com/Telesphoreo/TF-WorldEdit/releases), and is always up to date with the official WorldEdit.
 
 ## Developers
 Developers can add Wave as a dependency with Jitpack. First, you have to add the Jitpack repository.
