@@ -34,9 +34,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.Telesphoreo</groupId>
+            <groupId>me.totalfreedom</groupId>
             <artifactId>TotalFreedomMod</artifactId>
-            <version>2018.4.2</version>
+            <version>2019.1.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -96,7 +96,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>us.telesphoreo.wave</shadedPattern>
+                            <shadedPattern>me.telesphoreo.wave</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -240,6 +240,10 @@
         <repository>
             <id>sk89q-repo</id>
             <url>http://maven.sk89q.com/repo/</url>
+        </repository>
+        <repository>
+            <id>telesphoreo-repo</id>
+            <url>https://telesphoreo.me/repo/maven/</url>
         </repository>
     </repositories>
 </project>
