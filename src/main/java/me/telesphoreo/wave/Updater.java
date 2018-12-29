@@ -29,7 +29,7 @@ class Updater
     {
         try
         {
-            String versionLink = "https://www.telesphoreo.us/wave/version.txt";
+            String versionLink = "https://www.telesphoreo.me/wave/version.txt";
             URL url = new URL(versionLink);
             URLConnection con = url.openConnection();
             InputStreamReader isr = new InputStreamReader(con.getInputStream());
@@ -50,7 +50,7 @@ class Updater
 
             if (!newHead.equals(oldHead))
             {
-                String dlLink = "https://telesphoreo.us/wave/Wave.jar";
+                String dlLink = "https://telesphoreo.me/wave/Wave.jar";
                 url = new URL(dlLink);
                 con = url.openConnection();
                 InputStream in = con.getInputStream();
