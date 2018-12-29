@@ -2,7 +2,7 @@ name: ${project.name}
 version: ${project.version}
 description: A permission plugin designed to work with TotalFreedomMod
 author: Model_3
-main: us.flowdesigns.wave.Wave
+main: me.telesphoreo.wave.Wave
 depend: [TotalFreedomMod]
 api-version: 1.13
 commands:

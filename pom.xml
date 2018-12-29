@@ -6,7 +6,7 @@
 
     <groupId>us.flowdesigns</groupId>
     <artifactId>Wave</artifactId>
-    <version>1.6</version>
+    <version>1.6.1</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -96,7 +96,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>us.flowdesigns.wave</shadedPattern>
+                            <shadedPattern>us.telesphoreo.wave</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

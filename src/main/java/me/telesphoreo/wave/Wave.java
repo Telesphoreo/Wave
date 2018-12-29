@@ -1,9 +1,13 @@
-package us.flowdesigns.wave;
+package me.telesphoreo.wave;
 
 import com.sk89q.wepif.PermissionsProvider;
 import com.sk89q.wepif.PermissionsResolverManager;
 import java.io.InputStream;
 import java.util.Properties;
+import me.telesphoreo.commands.CMD_Handler;
+import me.telesphoreo.commands.CMD_Loader;
+import me.telesphoreo.utils.Config;
+import me.telesphoreo.utils.NLog;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
@@ -11,10 +15,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import us.flowdesigns.commands.CMD_Handler;
-import us.flowdesigns.commands.CMD_Loader;
-import us.flowdesigns.utils.Config;
-import us.flowdesigns.utils.NLog;
 
 public class Wave extends JavaPlugin
 {

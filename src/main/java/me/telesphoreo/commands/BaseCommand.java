@@ -1,11 +1,11 @@
-package us.flowdesigns.commands;
+package me.telesphoreo.commands;
 
 import java.util.Collection;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import us.flowdesigns.wave.Wave;
+import me.telesphoreo.wave.Wave;
 
 // Credit to TF
 

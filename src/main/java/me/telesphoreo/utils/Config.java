@@ -1,4 +1,4 @@
-package us.flowdesigns.utils;
+package me.telesphoreo.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,7 +9,7 @@ import java.util.Map;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
-import us.flowdesigns.wave.Wave;
+import me.telesphoreo.wave.Wave;
 
 public class Config
 {

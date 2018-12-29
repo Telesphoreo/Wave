@@ -1,11 +1,11 @@
-package us.flowdesigns.commands;
+package me.telesphoreo.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import us.flowdesigns.wave.PermissionCheck;
+import me.telesphoreo.wave.PermissionCheck;
 
 @CommandPermissions(source = SourceType.BOTH)
 @CommandParameters(description = "Reload permissions for everyone or a player", usage = "/<command> <<player> | -a>", aliases = "rp,reloadperms")

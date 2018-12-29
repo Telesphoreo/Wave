@@ -1,4 +1,4 @@
-package us.flowdesigns.wave;
+package me.telesphoreo.wave;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,7 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import us.flowdesigns.utils.NLog;
+import me.telesphoreo.utils.NLog;
 
 class Updater
 {
@@ -29,7 +29,7 @@ class Updater
     {
         try
         {
-            String versionLink = "https://www.flowdesigns.us/wave/version.txt";
+            String versionLink = "https://www.telesphoreo.us/wave/version.txt";
             URL url = new URL(versionLink);
             URLConnection con = url.openConnection();
             InputStreamReader isr = new InputStreamReader(con.getInputStream());
@@ -50,7 +50,7 @@ class Updater
 
             if (!newHead.equals(oldHead))
             {
-                String dlLink = "https://flowdesigns.us/wave/Wave.jar";
+                String dlLink = "https://telesphoreo.us/wave/Wave.jar";
                 url = new URL(dlLink);
                 con = url.openConnection();
                 InputStream in = con.getInputStream();

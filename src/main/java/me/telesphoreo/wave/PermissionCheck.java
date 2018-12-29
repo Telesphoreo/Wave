@@ -1,14 +1,13 @@
-package us.flowdesigns.wave;
+package me.telesphoreo.wave;
 
 import java.util.HashMap;
+import me.telesphoreo.utils.NLog;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.permissions.PermissionAttachment;
-import us.flowdesigns.utils.NLog;
-import static us.flowdesigns.wave.Wave.plugin;
 
 public class PermissionCheck implements Listener
 {
@@ -24,8 +23,8 @@ public class PermissionCheck implements Listener
 
     public void loadPermissions(Player player)
     {
-        PermissionAttachment attachment = player.addAttachment(plugin);
-        attachment.getPermissible().addAttachment(plugin);
+        PermissionAttachment attachment = player.addAttachment(Wave.plugin);
+        attachment.getPermissible().addAttachment(Wave.plugin);
 
         if (TotalFreedomMod.plugin().al.isAdminImpostor(player))
         {
@@ -53,8 +52,8 @@ public class PermissionCheck implements Listener
     {
         ops.remove(player);
         admins.remove(player);
-        PermissionAttachment attachment = player.addAttachment(plugin);
-        attachment.getPermissible().addAttachment(plugin);
+        PermissionAttachment attachment = player.addAttachment(Wave.plugin);
+        attachment.getPermissible().addAttachment(Wave.plugin);
 
         if (TotalFreedomMod.plugin().al.isAdmin(player))
         {
@@ -71,9 +70,9 @@ public class PermissionCheck implements Listener
 
     public void readOpList(PermissionAttachment attachment)
     {
-        if (plugin.getConfig().isList("operator.permissions"))
+        if (Wave.plugin.getConfig().isList("operator.permissions"))
         {
-            for (String c : plugin.getConfig().getStringList("operator.permissions"))
+            for (String c : Wave.plugin.getConfig().getStringList("operator.permissions"))
             {
                 attachment.setPermission(c.toLowerCase(), false);
             }
@@ -86,9 +85,9 @@ public class PermissionCheck implements Listener
 
     public void flushOpPermissions(PermissionAttachment attachment)
     {
-        if (plugin.getConfig().isList("operator.permissions"))
+        if (Wave.plugin.getConfig().isList("operator.permissions"))
         {
-            for (String c : plugin.getConfig().getStringList("operator.permissions"))
+            for (String c : Wave.plugin.getConfig().getStringList("operator.permissions"))
             {
                 attachment.setPermission(c.toLowerCase(), true);
             }
@@ -101,9 +100,9 @@ public class PermissionCheck implements Listener
 
     public void readAdminList(PermissionAttachment attachment)
     {
-        if (plugin.getConfig().isList("superadmin.permissions"))
+        if (Wave.plugin.getConfig().isList("superadmin.permissions"))
         {
-            for (String c : plugin.getConfig().getStringList("superadmin.permissions"))
+            for (String c : Wave.plugin.getConfig().getStringList("superadmin.permissions"))
             {
                 attachment.setPermission(c.toLowerCase(), false);
             }

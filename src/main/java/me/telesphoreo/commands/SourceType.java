@@ -1,4 +1,4 @@
-package us.flowdesigns.commands;
+package me.telesphoreo.commands;
 
 // Credit to TF
 

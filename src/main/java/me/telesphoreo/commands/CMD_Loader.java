@@ -1,4 +1,4 @@
-package us.flowdesigns.commands;
+package me.telesphoreo.commands;
 
 import java.io.IOException;
 import java.security.CodeSource;
@@ -18,9 +18,9 @@ import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginIdentifiableCommand;
 import org.bukkit.plugin.Plugin;
-import us.flowdesigns.utils.NLog;
-import us.flowdesigns.utils.NUtil;
-import us.flowdesigns.wave.Wave;
+import me.telesphoreo.utils.NLog;
+import me.telesphoreo.utils.NUtil;
+import me.telesphoreo.wave.Wave;
 
 // Credit to TF
 

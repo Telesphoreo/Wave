@@ -1,11 +1,11 @@
-package us.flowdesigns.commands;
+package me.telesphoreo.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import us.flowdesigns.utils.NLog;
-import us.flowdesigns.wave.Wave;
+import me.telesphoreo.utils.NLog;
+import me.telesphoreo.wave.Wave;
 
 // Credit to TF
 
