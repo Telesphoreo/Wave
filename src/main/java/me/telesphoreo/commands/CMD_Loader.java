@@ -1,6 +1,7 @@
 package me.telesphoreo.commands;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.security.CodeSource;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,6 +12,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import me.telesphoreo.utils.NLog;
+import me.telesphoreo.wave.Wave;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandException;
@@ -18,9 +21,6 @@ import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginIdentifiableCommand;
 import org.bukkit.plugin.Plugin;
-import me.telesphoreo.utils.NLog;
-import me.telesphoreo.utils.NUtil;
-import me.telesphoreo.wave.Wave;
 
 // Credit to TF
 
@@ -99,7 +99,7 @@ public class CMD_Loader
     @SuppressWarnings("unchecked")
     public static CommandMap getCommandMap()
     {
-        final Object commandMap = NUtil.getField(Bukkit.getServer().getPluginManager(), "Wave");
+        final Object commandMap = getField(Bukkit.getServer().getPluginManager(), "Wave");
         if (commandMap != null)
         {
             if (commandMap instanceof CommandMap)
@@ -113,7 +113,7 @@ public class CMD_Loader
     @SuppressWarnings("unchecked")
     public static HashMap<String, Command> getKnownCommands(CommandMap commandMap)
     {
-        Object knownCommands = NUtil.getField(commandMap, "Wave");
+        Object knownCommands = getField(commandMap, "Wave");
         if (knownCommands != null)
         {
             if (knownCommands instanceof HashMap)
@@ -248,6 +248,28 @@ public class CMD_Loader
             sb.append("\naliases: ").append(aliases);
             return sb.toString();
         }
+    }
+
+    // Credit to sk89q
+    @SuppressWarnings("unchecked")
+    public static <T> T getField(Object from, String name)
+    {
+        Class<?> checkClass = from.getClass();
+        do
+        {
+            try
+            {
+                Field field = checkClass.getDeclaredField(name);
+                field.setAccessible(true);
+                return (T)field.get(from);
+            }
+            catch (NoSuchFieldException | IllegalAccessException ex)
+            {
+            }
+        }
+        while (checkClass.getSuperclass() != Object.class
+                && ((checkClass = checkClass.getSuperclass()) != null));
+        return null;
     }
 
     public static class PC_DynamicCommand extends Command implements PluginIdentifiableCommand

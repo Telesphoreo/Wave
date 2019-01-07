@@ -3,6 +3,7 @@ package me.telesphoreo.wave;
 import java.util.HashMap;
 import me.telesphoreo.utils.NLog;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
+import me.totalfreedom.totalfreedommod.admin.AdminList;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,7 +27,7 @@ public class PermissionCheck implements Listener
         PermissionAttachment attachment = player.addAttachment(Wave.plugin);
         attachment.getPermissible().addAttachment(Wave.plugin);
 
-        if (TotalFreedomMod.plugin().al.isAdminImpostor(player))
+        if (getTFM().isAdminImpostor(player))
         {
             readOpList(attachment);
             NLog.info("Registered " + player.getName() + " as an impostor, giving OP permissions");
@@ -34,7 +35,7 @@ public class PermissionCheck implements Listener
             return;
         }
 
-        if (TotalFreedomMod.plugin().al.isAdmin(player))
+        if (getTFM().isAdmin(player))
         {
             readAdminList(attachment);
             NLog.info("Registered " + player.getName() + " as an admin with Wave");
@@ -55,7 +56,7 @@ public class PermissionCheck implements Listener
         PermissionAttachment attachment = player.addAttachment(Wave.plugin);
         attachment.getPermissible().addAttachment(Wave.plugin);
 
-        if (TotalFreedomMod.plugin().al.isAdmin(player))
+        if (getTFM().isAdmin(player))
         {
             flushOpPermissions(attachment);
             readAdminList(attachment);
@@ -111,5 +112,10 @@ public class PermissionCheck implements Listener
         {
             NLog.severe("superadmin.permissions is not a list!");
         }
+    }
+
+    private AdminList getTFM()
+    {
+        return TotalFreedomMod.plugin().al;
     }
 }
