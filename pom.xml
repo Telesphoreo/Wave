@@ -63,7 +63,7 @@
 
         <plugins>
 
-            <!-- Compile Plugin !-->
+            <!-- Compile Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -75,7 +75,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Shade !-->
+            <!-- Shade -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -98,7 +98,7 @@
                 </executions>
             </plugin>
 
-            <!-- Git describe !-->
+            <!-- Git describe -->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>

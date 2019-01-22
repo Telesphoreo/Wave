@@ -54,24 +54,21 @@ class Updater
                 return;
             }
 
-            if (!newHead.equals(oldHead))
+            String dlLink = "https://telesphoreo.me/wave/Wave.jar";
+            url = new URL(dlLink);
+            urlConnection = url.openConnection();
+            InputStream in = urlConnection.getInputStream();
+            FileOutputStream out = new FileOutputStream(path);
+            byte[] buffer = new byte[1024];
+            int size = 0;
+            while ((size = in.read(buffer)) != -1)
             {
-                String dlLink = "https://telesphoreo.me/wave/Wave.jar";
-                url = new URL(dlLink);
-                urlConnection = url.openConnection();
-                InputStream in = urlConnection.getInputStream();
-                FileOutputStream out = new FileOutputStream(path);
-                byte[] buffer = new byte[1024];
-                int size = 0;
-                while ((size = in.read(buffer)) != -1)
-                {
-                    out.write(buffer, 0, size);
-                }
-
-                out.close();
-                in.close();
-                NLog.info("[Wave] An update has been successfully been applied to Wave.");
+                out.write(buffer, 0, size);
             }
+
+            out.close();
+            in.close();
+            NLog.info("[Wave] An update has been successfully been applied to Wave.");
         }
         catch (IOException ex)
         {
