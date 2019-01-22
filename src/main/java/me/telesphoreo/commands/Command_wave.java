@@ -19,7 +19,7 @@ public class Command_wave extends BaseCommand
         PermissionCheck PermissionCheck = new PermissionCheck();
         if (args.length == 0)
         {
-            sender.sendMessage(ChatColor.GOLD + "Wave is a permission plugin designed to work with TotalFreedomMod");
+            sender.sendMessage(ChatColor.GOLD + "Wave is a permission plugin designed to work with TotalFreedomMod.");
             sender.sendMessage(ChatColor.GOLD + String.format("Version "
                             + ChatColor.BLUE + "%s - %s Build %s " + ChatColor.GOLD + "("
                             + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
@@ -32,7 +32,7 @@ public class Command_wave extends BaseCommand
                             + ChatColor.BLUE + "%s",
                     build.date,
                     build.author));
-            sender.sendMessage(ChatColor.GOLD + "Visit " + ChatColor.BLUE + "https://github.com/Telesphoreo/Wave" + ChatColor.GOLD + " for more information");
+            sender.sendMessage(ChatColor.GOLD + "Visit " + ChatColor.BLUE + "https://github.com/Telesphoreo/Wave" + ChatColor.GOLD + " for more information.");
             return true;
         }
 
