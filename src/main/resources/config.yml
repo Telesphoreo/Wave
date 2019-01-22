@@ -3,7 +3,8 @@
 #
 
 # Add the permission nodes you DON'T want players to have
-# TotalFreedomMod is required for these permission nodes to work
+# TotalFreedomMod is required for the plugin to work
+# More information at: https://github.com/TFPatches/TotalFreedomMod
 
 operator:
   permissions:
