@@ -31,16 +31,16 @@ class Updater
         {
             String versionLink = "https://www.telesphoreo.me/wave/version.txt";
             URL url = new URL(versionLink);
-            URLConnection con = url.openConnection();
-            InputStreamReader isr = new InputStreamReader(con.getInputStream());
-            BufferedReader reader = new BufferedReader(isr);
-            if (!reader.ready())
+            URLConnection urlConnection = url.openConnection();
+            InputStreamReader inputStreamReader = new InputStreamReader(urlConnection.getInputStream());
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            if (!bufferedReader.ready())
             {
                 return;
             }
 
-            String newHead = reader.readLine();
-            reader.close();
+            String newHead = bufferedReader.readLine();
+            bufferedReader.close();
 
             if (oldHead.equals("${git.commit.id.abbrev}") || oldHead.equals("unknown"))
             {
@@ -52,8 +52,8 @@ class Updater
             {
                 String dlLink = "https://telesphoreo.me/wave/Wave.jar";
                 url = new URL(dlLink);
-                con = url.openConnection();
-                InputStream in = con.getInputStream();
+                urlConnection = url.openConnection();
+                InputStream in = urlConnection.getInputStream();
                 FileOutputStream out = new FileOutputStream(path);
                 byte[] buffer = new byte[1024];
                 int size = 0;
