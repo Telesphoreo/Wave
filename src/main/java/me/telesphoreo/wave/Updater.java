@@ -51,6 +51,7 @@ class Updater
             if (newHead.equals(oldHead))
             {
                 NLog.info("[Wave] There are no updates available for Wave.");
+                return;
             }
 
             if (!newHead.equals(oldHead))
