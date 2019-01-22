@@ -44,8 +44,13 @@ class Updater
 
             if (oldHead.equals("${git.commit.id.abbrev}") || oldHead.equals("unknown"))
             {
-                NLog.info("[Wave] No Git head detected, not updating Wave");
+                NLog.info("[Wave] No Git head detected, not updating Wave.");
                 return;
+            }
+
+            if (newHead.equals(oldHead))
+            {
+                NLog.info("[Wave] There are no updates available for Wave.");
             }
 
             if (!newHead.equals(oldHead))
