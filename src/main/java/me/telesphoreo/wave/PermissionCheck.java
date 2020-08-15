@@ -1,17 +1,23 @@
 package me.telesphoreo.wave;
 
 import java.util.HashMap;
-import me.telesphoreo.utils.NLog;
 import me.totalfreedom.totalfreedommod.TotalFreedomMod;
 import me.totalfreedom.totalfreedommod.admin.AdminList;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.permissions.PermissionAttachment;
 
-public class PermissionCheck implements Listener
+public class PermissionCheck extends WaveBase implements Listener
 {
+    public PermissionCheck(Wave plugin)
+    {
+        this.plugin = plugin;
+        Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
+    }
+
     HashMap<Player, PermissionAttachment> ops = new HashMap<>();
     HashMap<Player, PermissionAttachment> admins = new HashMap<>();
 
@@ -30,7 +36,7 @@ public class PermissionCheck implements Listener
         if (getTFM().isAdminImpostor(player))
         {
             readOpList(attachment);
-            NLog.info("Registered " + player.getName() + " as an impostor, giving OP permissions");
+            Bukkit.getLogger().info("Registered " + player.getName() + " as an impostor, giving OP permissions");
             ops.put(player, attachment);
             return;
         }
@@ -38,13 +44,13 @@ public class PermissionCheck implements Listener
         if (getTFM().isAdmin(player))
         {
             readAdminList(attachment);
-            NLog.info("Registered " + player.getName() + " as an admin with Wave");
+            Bukkit.getLogger().info("Registered " + player.getName() + " as an admin with Wave");
             admins.put(player, attachment);
         }
         else
         {
             readOpList(attachment);
-            NLog.info("Registered " + player.getName() + " as an OP with Wave");
+            Bukkit.getLogger().info("Registered " + player.getName() + " as an OP with Wave");
             ops.put(player, attachment);
         }
     }
@@ -80,7 +86,7 @@ public class PermissionCheck implements Listener
         }
         else
         {
-            NLog.severe("operator.permissions is not a list!");
+            Bukkit.getLogger().severe("operator.permissions is not a list!");
         }
     }
 
@@ -95,7 +101,7 @@ public class PermissionCheck implements Listener
         }
         else
         {
-            NLog.severe("operator.permissions is not a list!");
+            Bukkit.getLogger().severe("operator.permissions is not a list!");
         }
     }
 
@@ -110,7 +116,7 @@ public class PermissionCheck implements Listener
         }
         else
         {
-            NLog.severe("superadmin.permissions is not a list!");
+            Bukkit.getLogger().severe("superadmin.permissions is not a list!");
         }
     }
 

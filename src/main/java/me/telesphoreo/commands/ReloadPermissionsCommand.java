@@ -1,20 +1,22 @@
 package me.telesphoreo.commands;
 
+import java.util.List;
+import me.telesphoreo.utils.WaveUtil;
+import me.telesphoreo.wave.PermissionCheck;
+import me.telesphoreo.wave.WaveBase;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
-import me.telesphoreo.wave.PermissionCheck;
 
-@CommandPermissions(source = SourceType.BOTH)
-@CommandParameters(description = "Reload permissions for everyone or a player", usage = "/<command> <<player> | -a>", aliases = "rp,reloadperms")
-public class Command_reloadpermissions extends BaseCommand
+public class ReloadPermissionsCommand extends WaveBase implements CommandExecutor, TabExecutor
 {
     @Override
-    public boolean run(final CommandSender sender, final Player sender_p, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole)
+    public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args)
     {
-        PermissionCheck PermissionCheck = new PermissionCheck();
         if (args.length != 1)
         {
             return false;
@@ -30,7 +32,7 @@ public class Command_reloadpermissions extends BaseCommand
         {
             for (Player player : server.getOnlinePlayers())
             {
-                PermissionCheck.reloadPermissions(player);
+                plugin.perms.reloadPermissions(player);
             }
             sender.sendMessage(ChatColor.GRAY + "Reloaded permissions for all players on the server.");
             return true;
@@ -43,9 +45,17 @@ public class Command_reloadpermissions extends BaseCommand
                 sender.sendMessage(ChatColor.RED + "Player not found.");
                 return true;
             }
-            PermissionCheck.reloadPermissions(player);
+            plugin.perms.reloadPermissions(player);
             sender.sendMessage(ChatColor.GRAY + "Reloaded permissions for " + player.getName() + ".");
             return true;
         }
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command cmd, String s, String[] args)
+    {
+        List<String> tab = WaveUtil.getPlayerList();
+        tab.add("-a");
+        return tab;
     }
 }

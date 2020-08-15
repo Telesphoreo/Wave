@@ -1,5 +1,5 @@
 #
-# Wave v1.6.1
+# Wave v2.0
 #
 
 # Add the permission nodes you DON'T want players to have
@@ -45,6 +45,7 @@ operator:
   - essentials.thunder
   - essentials.tpaall
   - essentials.tpall
+  - essentials.tpoffline
   - essentials.tptoggle.others
   - essentials.unban
   - essentials.unbanip
@@ -60,9 +61,7 @@ operator:
   - libsdisguises.disguise.ghast
   - libsdisguises.disguise.giant
   - libsdisguises.disguise.item_frame
-  - libsdisguises.disguise.magma_cube
   - libsdisguises.disguise.player
-  - libsdisguises.disguise.slime
   - libsdisguises.disguise.wither
   - libsdisguises.disguiseentity.area_affect_cloud
   - libsdisguises.disguiseentity.dropped_item

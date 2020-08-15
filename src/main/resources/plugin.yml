@@ -1,10 +1,10 @@
 name: ${project.name}
 version: ${project.version}
-description: A permission plugin designed to work with TotalFreedomMod
-author: Model_3
+description: A reverse permission plugin designed to work with TotalFreedomMod
+author: Telesphoreo
 main: me.telesphoreo.wave.Wave
 depend: [TotalFreedomMod]
-api-version: 1.13
+api-version: "1.16"
 commands:
   wave:
     usage: /<command> [reload]

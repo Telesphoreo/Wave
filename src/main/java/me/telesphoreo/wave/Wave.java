@@ -2,16 +2,13 @@ package me.telesphoreo.wave;
 
 import java.io.InputStream;
 import java.util.Properties;
-import me.telesphoreo.commands.CMD_Handler;
-import me.telesphoreo.commands.CMD_Loader;
+import me.telesphoreo.commands.ReloadPermissionsCommand;
+import me.telesphoreo.commands.WaveCommand;
 import me.telesphoreo.utils.Config;
-import me.telesphoreo.utils.NLog;
 import org.bstats.bukkit.Metrics;
+import org.bukkit.Bukkit;
 import org.bukkit.Server;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 public class Wave extends JavaPlugin
 {
@@ -20,45 +17,39 @@ public class Wave extends JavaPlugin
     private static Server server;
     private static String pluginVersion;
 
+    public Config config;
+    public PermissionCheck perms;
+
     @Override
     public void onLoad()
     {
         Wave.plugin = this;
         Wave.server = plugin.getServer();
-        NLog.setServerLogger(server.getLogger());
-        NLog.setServerLogger(server.getLogger());
         Wave.pluginVersion = plugin.getDescription().getVersion();
+        config = new Config(this);
     }
 
     @Override
     public void onEnable()
     {
-        Config.loadConfigs();
+        config.load();
         build.load(Wave.plugin);
-        server.getPluginManager().registerEvents(new PermissionCheck(), Wave.plugin);
-        new Metrics(this);
-        new BukkitRunnable()
-        {
-            @Override
-            public void run()
-            {
-                CMD_Loader.getCommandMap();
-                CMD_Loader.scan();
-            }
-        };
+        perms = new PermissionCheck(this);
+        new Metrics(this, 8543);
     }
 
     @Override
     public void onDisable()
     {
-        Updater updater = new Updater(plugin);
-        updater.update();
+        config.save();
     }
 
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)
+    public void loadCommands()
     {
-        return CMD_Handler.handleCommand(sender, cmd, commandLabel, args);
+        getCommand("wave").setExecutor(new WaveCommand());
+        getCommand("wave").setTabCompleter(new WaveCommand());
+        getCommand("reloadpermissions").setExecutor(new ReloadPermissionsCommand());
+        getCommand("reloadpermissions").setTabCompleter(new ReloadPermissionsCommand());
     }
 
     public static class BuildProperties
@@ -91,8 +82,8 @@ public class Wave extends JavaPlugin
             }
             catch (Exception ex)
             {
-                NLog.severe("Could not load build properties! Did you compile with NetBeans/Maven?");
-                NLog.severe(ex);
+                Bukkit.getLogger().severe("Could not load build properties! Did you compile with NetBeans/Maven?");
+                ex.printStackTrace();
             }
         }
     }
